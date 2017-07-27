@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style>
+	table {
+		border: 1px solid black;
+	}
+	
+	#m_addr {
+		width: 470px;
+	}
+	
+</style>
+<script src="jscript/jquery-3.2.1.min.js"></script>
+<script>
+// 	$.msg = {
+// 			not_email : "메일주소를 입력하지않으셨습니다.",
+// 			invalid_email : "잘못된 메일주소형식입니다.",
+// 			not_name  : "이름을 입력하지 않으셨습니다.",
+// 			not_password : "비밀번호를 입력하지 않으셨습니다.",
+// 			not_phone : "연락처를 입력하지 않으셨습니다.",
+// 			invalid_phone : "잘못된 휴대폰번호 형식입니다.",
+// 			not_skill : "기술을 하나이상 선택하셔야합니다.",
+// 			not_post : "우편번호를 선택하지 않으셨습니다.",
+// 			not_course : "과정을 선택하지 않으셨습니다."
+// 	}
+	
+// 	function checkEmail(email){
+// 		account = '^[0-9a-z][0-9a-z_\-]{0,19}@';
+// 		subdomain = '[a-z][a-z0-9_]{0,19}\\.';
+// 		upperdomain = '(((co|ac)\\.(kr|jp))|com|net|org)$';
+// 		patternEmail = RegExp(account + subdomain + upperdomain, 'i');
+// 		return patternEmail.test(email);
+// 	}
+	
+// 	var checkPassword = function(){
+// 		if ($('input#m_pass').val()!=$('input#m_pass2').val()){
+// 			alert("비밀번호가 일치하지 않습니다!");
+// 			$('input#m_pass2').prop('value', "");
+// 			//$('input#m_pass2').focus();
+// 			return false;
+// 		}
+// 		return true;
+// 	};
+	
+// 	var checkPhone = function(phone){
+// 		var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+// 		return regExp.test(phone)
+// 	};
+	
+// 	var varidityCheck = function(){
+// 		//alert($("#skill:checked").length);
+// 		//alert("정인호".indexOf(' '));
+// 		//alert($('select#courseList option').index($('select#courseList option:selected')));
+// 		if($('input#m_mail').val().trim()==""){
+// 			alert($.msg.not_email);
+// 			$('input#m_mail').focus();
+// 			return false;
+// 		} else if(!checkEmail($('input#m_mail').val())){
+// 			alert($.msg.invalid_email);
+// 			$('input#m_mail').focus();
+// 			return false;
+// 		} else if($('input#m_name').val().trim()==""){
+// 			alert($.msg.not_name);
+// 			$('input#m_name').focus();
+// 			return false;
+// 		} else if($('input#m_pass2').val().trim()==""){
+// 			alert($.msg.not_password);
+// 			$('input#m_pass').focus();
+// 			return false;
+// 		} else if($('input#m_phone').val().trim()==""){
+// 			alert($.msg.not_phone);
+// 			$('input#m_phone').focus();
+// 			return false;
+// 		} else if(!checkPhone($('#m_phone').val())){
+// 			$('#m_phone').prop('value', '');
+// 			alert($.msg.invalid_phone)
+// 			$('input#m_phone').focus();
+// 			return false;
+// 		} else if($('input#m_post').val().trim()==""){
+// 			alert($.msg.not_post);
+// 			return false;
+// 		} else if($('#m_part option').index($('#m_part option:selected')) <= 0){
+// 			alert($.msg.not_course);
+// 			return false;
+// 		} else if($("#skill:checked").length==0){
+// 			alert($.msg.not_skill);
+// 			return false;
+// 		}
+// 		//console.log($('input#m_mail'));
+// 		return true;
+// 	};
+	
+
+// 	$.fn.openSearchPost = function(){
+// 		this.click(function(e){
+// 			open("searchPost.html", "srWin", "width=400, height=250");
+// 		});
+// 	}
+
+// 	$(document).ready(function(e){
+// 		$('input#submit').click(function(e){
+// 			if(varidityCheck()){
+// 				alert("전송합니다.");
+// 				return true;
+// 			}
+// 			return false;
+// 		});
+		
+// 		$('input#m_pass2').focusout(function(e){
+// 			checkPassword();
+// 		});
+		
+// 		$('input#search').openSearchPost();
+// // 		$('form#end').click(function(e){
+// // 			if(varidityCheck()){
+// // 				alert("전송합니다.");
+// // 				$('form#end').submit();
+// // 			}
+// // 		});
+		
+		
+// 		//$('form#end').submit();
+// 	});
+
+/* ----------------------------------------------------------------------------       */
+	var xhr;
+	var createXhr = function(){
+		if (window.ActiveXObject){ // 윈도우에서 액티브X를 지원하느냐
+			xhr = new ActiveXObject("Microsoft.XMLHTTP"); // 요청 객체를 만든다.
+		} else {
+			xhr = new XMLHttpRequest(); // 요청 객체를 만든다. http 프로토콜을 이용해서 
+		}
+	}
+	//실제 통신을 담당할 함수
+	var callXhr = function(callback, url, postData){
+		method = (postData == null) ? 'get' : 'post';
+		(xhr == null) && createXhr(); // 앞이 거짓이면 뒤 수행안한다. 앞이 참이면 뒤 수행한다.
+		xhr.onreadystatechange = callback; // 서버상에서 요청이 들어오면 이 때 callback함수(처리함수)를 실해시키기위해 등록해놓는다.
+		xhr.open(method, url, true); // 채널을 연다. method: 어떤 방식, url : 어디로
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded'); // 'Content-type'에는 여러가지가 올 수 있다.? 
+		xhr.send(postData);// 데이터보내기
+	}
+	var register = function(){
+		if ((xhr.readyState == 4) && (xhr.status == 200)){
+			tmp = xhr.responseText; // 이미 request 객체가 받아서 responseText에 저장을 해놨다. 꺼내오기만 하면 된다.
+// 			alert(tmp);
+ 			jobj = eval('(' + tmp + ')'); // json 객체형태로 변환한다.
+//  			$("select#jumsuList").append(new Option("국: "+ jobj.kor + "영 : " + jobj.eng + "수 : "+ jobj.math)); // 첫 번째는 보여줄 텍스트 두번째는 value
+// 			alert(jobj.result);
+// 			alert(jobj.errno);
+			if(jobj.result == "false"){
+			
+				alert(jobj.message);
+				return;
+			}
+			alert(jobj.message);
+		}
+	}
+	
+	$(document).ready(function(e){
+		$('#submit').click(function(e){
+			url = "http://test.powerlinux.co.kr/member/insertMember.php";
+			postdata = 'm_mail=' + $('#m_mail').val();
+			postdata+= '&m_name=' + $('#m_name').val();
+			postdata+= '&m_pass=' + $('#m_pass').val();
+			postdata+= '&m_pass2=' + $('#m_pass2').val();
+			postdata+= '&m_phone=' + $('#m_phone').val();
+			callXhr(register, url, postdata);
+		});
+		
+ 		//$('input#search').openSearchPost();
+
+	});
+
+</script>
+</head>
+<body>
+<form id="end" action="http://test.powerlinux.co.kr/member/insertMember.php" method="post">
+<table>
+	<tr>
+		<td>메일주소</td>
+		<td><input type="text" id="m_mail" name="m_mail" /></td>
+		<td>비밀번호</td>
+		<td><input type="password" id="m_pass" name="m_pass" /></td>
+	</tr>
+	<tr>
+		<td>회원이름</td>
+		<td><input type="text" id="m_name" name="m_name" /></td>
+		<td>비밀번호확인</td>
+		<td><p><input type="password" id="m_pass2" name="m_pass2" /></p></td>
+	</tr>
+	<tr>
+		<td>연락처</td>
+		<td colspan="3"><input type="text" id="m_phone" name="m_phone" /></td>
+	</tr>
+	<tr>
+		<td>우편번호</td>
+		<td><input type="text" id="m_post" name="m_post" readonly/>&nbsp;<input type="button" id="search" value="검색"/></td>
+		<td>나머지주소</td>
+		<td><input type="text" id="m_addr2" name="m_addr2" /></td>
+	</tr>
+	<tr>
+		<td>주소</td>
+		<td colspan="3"><input type="text" id="m_addr"name="m_addr" readonly/></td>
+	</tr>
+	<tr>
+		<td>과정</td>
+		<td colspan="3">
+			<select id="m_part">
+				<option value="">선택사항</option>
+				<option value="SW">소프트웨어융합</option>
+				<option value="HW">플랫폼 융합</option>
+			</select>
+		</td>
+
+	</tr>
+	<tr>
+		<td rowspan="2">사용가능기술</td>
+		<td rowspan="2" colspan="3">
+			<input type="checkbox" id="skill" name="skill" value="DB" >DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="checkbox" id="skill" name="skill" value="JV" >java
+			<input type="checkbox" id="skill" name="skill" value="CB" >c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="checkbox" id="skill" name="skill" value="CP" >c++ <br />
+			<input type="checkbox" id="skill" name="skill" value="ML" >HTML
+			<input type="checkbox" id="skill" name="skill" value="CS" >CSS
+			<input type="checkbox" id="skill" name="skill" value="JS" >javascript
+			<input type="checkbox" id="skill" name="skill" value="JQ" >jQuery
+		</td>
+	</tr>
+	<tr></tr>
+
+</table>
+	<input type="reset" id="reset"  value="초기화"/>
+	<input type="button" id="submit" value="전송" />
+	<input type="submit" id="submit22" value="폼전소옹" />
+</form>
+</body>
+</html>

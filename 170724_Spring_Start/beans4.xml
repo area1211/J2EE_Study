@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="messageBean" class="sample4.MessageBeanImpl">
+		<constructor-arg value="spring"/>
+		<property name="greeting" value="Hello,, "/>
+		<property name="outputter" ref="outputter"/>
+	</bean>
+	
+	<bean id="outputter" class="sample4.FileOutputterImpl">
+		<property name="fileName">
+			<value>out.txt</value>
+		</property>
+	</bean>
+	
+	<bean id="rectangle" class="sample5.Rectangle">
+		<property name="start">
+			<ref local="point"/>
+		</property>
+		<property name="width">
+			<value>100</value>
+		</property>
+		<property name="height">
+			<value>200</value>
+		</property>
+	</bean>
+	
+	<bean id="point" class="sample5.Point">
+		<property name="x">
+			<value>20</value>
+		</property>
+		<property name="y">
+			<value>10</value>
+		</property>
+	</bean>
+	
+
+</beans>

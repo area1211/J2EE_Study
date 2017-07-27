@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글 목록 보기</title>
+
+<link rel="stylesheet" href="css/indexStyle.css" />
+<link rel="stylesheet" href="css/btnStyle.css" />
+<link rel="stylesheet" href="css/article.css" />
+</head>
+<body>
+<aside>
+	<div id="sideUp">
+		I&nbsp;D&nbsp;<input class="input" type="text" name="id" /><br/>
+		PW<input class="input" type="password" name="pwd" /><br/>
+		<input type="button" value="Login"/>
+		<input type="button" value="Join"/>
+	</div>
+	<div id="boardMenu">
+		<input class="ClassName" type="button" value="Soccer"/><br/><br/>
+		<input class="ClassName" type="button" value="Basketball"/><br/><br/>
+		<input class="ClassName" type="button" value="Baseball"/>
+	</div>
+
+</aside>
+<article>
+	<div class="title">
+		<div>게시판제목</div>
+		<div>게시판 한줄 설명</div>
+	</div>
+	<div class="middleMenu">
+		<input type="button" value="글쓰기" />
+		<select class="select">
+			<option>10개</option>
+			<option>20개</option>
+			<option>30개</option>
+		</select>
+	</div>
+	<div class="postList">
+		<table class="table">
+			<tr><td>No.</td>
+			<td>글제목</td>
+			<td>글쓴이</td>
+			<td>작성일</td>
+			<td>조회수</td>
+			<td>추천수</td></tr>
+			<tr>
+				<td>1</td>
+				<td>호날도짱</td>
+				<td>정인호</td>
+				<td>17.07.02</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+		</table>
+	</div>
+	<div class="paging">
+		<a href="#">&lt;</a>
+		<a href="#">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">&gt;</a>
+	</div>
+
+</article>
+</body>
+</html>

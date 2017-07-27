@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="170629_OracleConnectionTest">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="170629_OracleConnectionTest"/>
+        <property name="java-output-path" value="/170629_OracleConnectionTest/build/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>170629_OracleConnectionTest</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>OracleURL</param-name>
+    <param-value>jdbc:oracle:thin:@localhost:1521:XE</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OracleDriverClassName</param-name>
+    <param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OracleID</param-name>
+    <param-value>hr</param-value>
+  </context-param>
+  <context-param>
+    <param-name>OraclePW</param-name>
+    <param-value>1111</param-value>
+  </context-param>
+  <listener>
+    <listener-class>com.lecto.listener.MyListener</listener-class>
+  </listener>
+  <servlet>
+    <description></description>
+    <display-name>MyServlet</display-name>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.lecto.servlet.MyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/dbtest.do</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+.ClassName {
+	font-weight:bold;
+	text-decoration:none;
+	font-family:Arial;
+	box-shadow:inset #fafafa 0px 5px 8px -1px,#a8a8a8 0px 4px 0px;
+	o-box-shadow:inset #fafafa 0px 5px 8px -1px,#a8a8a8 0px 4px 0px;
+	-moz-box-shadow:inset #fafafa 0px 5px 8px -1px,#a8a8a8 0px 4px 0px;
+	-webkit-box-shadow:inset #fafafa 0px 5px 8px -1px,#a8a8a8 0px 4px 0px;
+	background:#eeeeee;
+	background:-o-linear-gradient(90deg, #eeeeee, #e1e1e1);
+	background:-moz-linear-gradient( center top, #eeeeee 5%, #e1e1e1 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eeeeee), color-stop(1, #e1e1e1) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#e1e1e1');
+	background:-webkit-linear-gradient(#eeeeee, #e1e1e1);
+	background:-ms-linear-gradient(#eeeeee, #e1e1e1);
+	background:linear-gradient(#eeeeee, #e1e1e1);
+	text-indent:0px;
+	line-height:0px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:12px;
+	color:#696969;
+	width:120px;
+	height:0px;
+	padding:13px;
+	border-color:#e1e1e1;
+	border-width:1px;
+	border-style:solid;
+}
+
+.ClassName:active {
+	box-shadow:inset #ffffff 0px 2px 0px -1px,#d2d3d4 0px 0 3px;
+	o-box-shadow:inset #ffffff 0px 2px 0px -1px,#d2d3d4 0px 0 3px;
+	-moz-box-shadow:inset #ffffff 0px 2px 0px -1px,#d2d3d4 0px 0 3px;
+	-webkit-box-shadow:inset #ffffff 0px 2px 0px -1px,#d2d3d4 0px 0 3px;
+	position:relative;
+	top:1px
+}
+
+.ClassName:hover {
+	background:#d4f2ff;
+	background:-o-linear-gradient(90deg, #d4f2ff, #bfecff);
+	background:-moz-linear-gradient( center top, #d4f2ff 5%, #bfecff 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d4f2ff), color-stop(1, #bfecff) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d4f2ff', endColorstr='#bfecff');
+	background:-webkit-linear-gradient(#d4f2ff, #bfecff);
+	background:-ms-linear-gradient(#d4f2ff, #bfecff);
+	background:linear-gradient(#d4f2ff, #bfecff);
+}
+
+.input {
+	width : 100px;
+}

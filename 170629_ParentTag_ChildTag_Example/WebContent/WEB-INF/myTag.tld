@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    <description>A tag library exercising SimpleTag handlers.</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>RandomTags</short-name>
+    <uri>randomThings</uri>
+	<tag>
+		<description>random advice</description>
+		<name>advice</name>
+		<tag-class>foo.AdvisorTagHandler</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>user</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>NestedLevel</name>
+		<tag-class>foo.NestedLevelTag</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+    <tag>
+    	<name>ClassicParent</name>
+    	<tag-class>foo.MyClassicParent</tag-class>
+    	<body-content>scriptless</body-content>
+    	<attribute>
+    		<name>name</name>
+    		<required>true</required>
+    	</attribute>
+    </tag>
+    <tag>
+    	<name>SimpleInner</name>
+    	<tag-class>foo.SimpleInnerTag</tag-class>
+    	<body-content>empty</body-content>
+    </tag>
+    <tag>
+    	<name>Menu</name>
+    	<tag-class>foo.Menu</tag-class>
+    	<body-content>scriptless</body-content>
+    </tag>
+    <tag>
+    	<name>MenuItem</name>
+    	<tag-class>foo.MenuItem</tag-class>
+    	<body-content>empty</body-content>
+    </tag>
+    <function>
+        <description>HeadFirstJSP-Chap8</description>
+        <name>rollIt</name>
+        <function-class>model.DiceRoller</function-class>
+        <function-signature>java.lang.Integer rollDice()</function-signature>
+    </function>
+	
+
+</taglib>
+

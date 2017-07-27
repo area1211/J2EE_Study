@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jscript/jquery-3.2.1.min.js"></script>
+<script>
+	var postNum;
+	var postName;
+	
+	$(document).ready(function(e){
+		
+		$('#btnOk').click(function(e){
+			//alert ($('#addrList option').index($('#addrList option:selected')));
+			if ( $('#addrList option').index($('#addrList option:selected')) <= 0){
+				//선택이 안되었다면 
+				alert('주소선택하세요.');
+				return;
+			}
+			
+			
+
+			//window가 혼용되니 self 라는 용어를 쓴당
+			//opener.document.getElementById('txtPost').value = value;//js 방식
+			
+			//alert($('#m_post', opener.document));
+			//console.log($('#m_post', opener.document));
+			$('#m_post', opener.document).val(postNum);
+			$('#m_addr', opener.document).val(postName);
+			self.close();
+		});
+		console.log($('#addrList option'));
+		alert($('#addrList option'));
+		$('#v option').click(function(e){
+			alert("클릭클릭");
+			//console.log($('#addrList option'));
+			$('input#txtPost').val($('#addrList option: selected').val());
+		});
+		$('#addrList').change(function(e){
+			//console.log(e);
+			
+			if ( $('#addrList option').index($('#addrList option:selected')) > 0){
+				//console.log($('#addrList option:selected'));
+				//alert($('#addrList option:selected').text());
+				postNum= $('#addrList option:selected').val();
+				postName= $('#addrList option:selected').text();
+				$('#txtPost').val(postNum);
+			}
+			
+		});
+	})
+	
+	
+
+</script>
+</head>
+<body>
+
+<table>
+	<tr>
+		<td>주소선택</td>
+		<td>
+			<select id="addrList">
+				<option value="">주소선택하세요</option>
+				<option value="12345">서울시 관악구 봉천동</option>
+				<option value="12346">서울시 영등포구 신도림</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>우편번호</td>
+		<td><input type="text" id="txtPost" size="5" readOnly /></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" id="btnOk" value="선택" />
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>
